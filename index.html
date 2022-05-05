@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOLFOX-HAIC</title>
+    <script>
+        function docal(){
+            var W= document.getElementById("weight").value;
+            var H= document.getElementById("height").value;
+            if(W==''||H==''){document.getElementById("Output").innerHTML=null;return;}
+            var S=0.0061*H+0.0128*W-0.1529;
+            var out="体表面积（许文生氏公式）:"+S.toFixed(3)+" m2"+"<br />";
+            out=out+"用药流程："+"<br />";
+            out=out+"（1）化疗前: 地塞米松 10mg, 静推"+"<br />";
+            out=out+"（2）5%葡萄糖 "+(250-(85*S/5).toFixed(0))+"ml + 奥沙利铂注射液[10ml:50mg] "+(85*S/5).toFixed(0)+"ml/"+(85*S/5).toFixed(0)*5+"mg，"+"经动脉导管泵入（输液泵，3h泵完，"+(250/3).toFixed(0)+"ml/h）"+"<br />";
+            out=out+"（3）5%葡萄糖 100ml 经动脉导管泵入（输液泵，冲管，0.5h泵完，"+(100/0.5).toFixed(0)+"ml/h）"+"<br />";
+            out=out+"（4）0.9%NaCl "+(250-(400*S/10).toFixed(0))+"ml + 亚叶酸钙注射液[10ml:100mg] "+(400*S/10).toFixed(0)+"ml/"+(400*S/10).toFixed(0)*10+"mg，"+"经动脉导管泵入（输液泵，1.5h泵完，"+(250/1.5).toFixed(0)+"ml/h）"+"<br />";
+            out=out+"（5）0.9%NaCl "+(100-(400*S/25).toFixed(0))+"ml + 氟尿嘧啶注射液[10ml:250mg] "+(400*S/25).toFixed(0)+"ml/"+(400*S/25).toFixed(0)*25+"mg，"+"经动脉导管泵入（输液泵，2h泵完，"+(100/2).toFixed(0)+"ml/h）"+"<br />";
+            out=out+"（6）0.9%NaCl "+(230-(2400*S/25).toFixed(0))+"ml + 氟尿嘧啶注射液[10ml:250mg] "+(2400*S/25).toFixed(0)+"ml/"+(2400*S/25).toFixed(0)*25+"mg，"+"经动脉导管泵入（爱朋注药泵，46h泵完，"+(230/46).toFixed(0)+"ml/h）"+"<br />";
+            out=out+"（7）水化: 葡萄糖氯化钠注射液 500ml; 复方氯化钠注射液 500ml+ 10%氯化钾注射液 10ml; 10%葡萄糖注射液 500ml + 10%氯化钾注射液 10ml，外周静脉滴注维持"+"<br />";
+            out=out+"（8）止吐: 盐酸托完司琼 5mg, 静推 qd"+"<br />";
+            out=out+"（9）护胃: 兰索拉唑肠溶片 30mg 口服 qd"+"<br />";
+            out=out+"（10）护肝: 葡萄糖氯化钠注射液 250ml + 谷胱甘肽 1.2g; 葡萄糖氯化钠注射液 250ml + 复方甘草酸单铵 160mg, 外周静脉滴注 qd"+"<br />";
+            out=out+"（11）化疗结束后可追加TAE（罂粟乙碘油注射液10ml）后再拔管"+"<br />";
+            out=out+"<br />"+"备注：HAIC每3周重复1次；奥沙利铂可引起疼痛，可加用止痛药"+"<br />";
+            out=out+"<br />"+"参考文献：<a href='https://mp.weixin.qq.com/s/VNG2dEcMjN8TjsT6YvvShg'>陈敏山,肝动脉灌注化疗在肝癌转化治疗中的研究进展[J]. 中华消化外科杂志, 2021</a>"+"<br />";
+            out=out+"<br />"+"输液泵：<img src='img1.png' height='150px'> 爱朋注药泵：<img src='img2.png' height='150px'>"+"<br />";
+            document.getElementById("Output").innerHTML=out;
+        }
+    </script>
+</head>
+<body>
+<table>
+    <tbody><tr>
+        <td style="padding: 8px 0px;">FOLFOX-HAIC用药量计算及流程</td>
+    </tr>
+    <tr>
+        <td>身高（cm）: <input type="text" id="height" ,="" style="width: 80px"></td>
+    </tr>
+    <tr>
+        <td>体重（kg）&nbsp;: <input type="text" id="weight" ,="" style="width: 80px"></td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; text-align: center">
+            <input type="button" onclick="docal()" value="提交计算">
+        </td>
+    </tr>
+    <tr>
+        <td><out id="Output"></out></td>
+    </tr>
+</tbody></table>
+
+</body></html>
