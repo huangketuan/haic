@@ -11,13 +11,18 @@
             var H= document.getElementById("height").value;
             if(W==''||H==''){document.getElementById("Output").innerHTML=null;return;}
             var S=0.0061*H+0.0128*W-0.1529;
-            var out="体表面积（许文生氏公式）:"+S.toFixed(3)+" m2"+"<br />";
-            out=out+"用药流程："+"<br />";
+            var out="体表面积（Stevenson公式）:"+S.toFixed(3)+" m2"+"<br />";
+            out=out+"药物用量："+"<br />";
+            out=out+"（1）奥沙利铂（85mg/m2）: "+(85*S).toFixed(0)+" mg"+"<br />";
+            out=out+"（2）亚叶酸钙（400mg/m2）: "+(400*S).toFixed(0)+" mg"+"<br />";
+            out=out+"（3）氟尿嘧啶（400mg/m2）: "+(400*S).toFixed(0)+" mg"+"<br />";
+            out=out+"（4）氟尿嘧啶（2400mg/m2）: "+(2400*S).toFixed(0)+" mg"+"<br />";
+            out=out+"<br />"+"用药流程："+"<br />";
             out=out+"（1）化疗前: 地塞米松 10mg, 静推"+"<br />";
-            out=out+"（2）5%葡萄糖 "+(250-(85*S/5).toFixed(0))+"ml + 奥沙利铂注射液[10ml:50mg] "+(85*S/5).toFixed(0)+"ml/"+(85*S/5).toFixed(0)*5+"mg，"+"经动脉导管泵入（输液泵，3h泵完，"+(250/3).toFixed(0)+"ml/h）"+"<br />";
-            out=out+"（3）5%葡萄糖 100ml 经动脉导管泵入（输液泵，冲管，0.5h泵完，"+(100/0.5).toFixed(0)+"ml/h）"+"<br />";
-            out=out+"（4）0.9%NaCl "+(250-(400*S/10).toFixed(0))+"ml + 亚叶酸钙注射液[10ml:100mg] "+(400*S/10).toFixed(0)+"ml/"+(400*S/10).toFixed(0)*10+"mg，"+"经动脉导管泵入（输液泵，1.5h泵完，"+(250/1.5).toFixed(0)+"ml/h）"+"<br />";
-            out=out+"（5）0.9%NaCl "+(100-(400*S/25).toFixed(0))+"ml + 氟尿嘧啶注射液[10ml:250mg] "+(400*S/25).toFixed(0)+"ml/"+(400*S/25).toFixed(0)*25+"mg，"+"经动脉导管泵入（输液泵，2h泵完，"+(100/2).toFixed(0)+"ml/h）"+"<br />";
+            out=out+"（2）5%葡萄糖 250ml + 奥沙利铂注射液[10ml:50mg] "+(85*S/5).toFixed(0)+"ml/"+(85*S/5).toFixed(0)*5+"mg，"+"经动脉导管泵入（输液泵，2h泵完，"+((250+85*S/5)/2).toFixed(0)+"ml/h）"+"<br />";
+            out=out+"（3）5%葡萄糖 100ml 经动脉导管泵入（输液泵，冲管）"+"<br />";
+            out=out+"（4）0.9%NaCl 250ml + 亚叶酸钙注射液[10ml:100mg] "+(400*S/10).toFixed(0)+"ml/"+(400*S/10).toFixed(0)*10+"mg，"+"经动脉导管泵入（输液泵，1.5h泵完，"+((250+400*S/10)/1.5).toFixed(0)+"ml/h）"+"<br />";
+            out=out+"（5）0.9%NaCl 50ml + 氟尿嘧啶注射液[10ml:250mg] "+(400*S/25).toFixed(0)+"ml/"+(400*S/25).toFixed(0)*25+"mg，"+"经动脉导管泵入（输液泵，0.5h泵完，"+((50+400*S/25)/0.5).toFixed(0)+"ml/h）"+"<br />";
             out=out+"（6）0.9%NaCl "+(230-(2400*S/25).toFixed(0))+"ml + 氟尿嘧啶注射液[10ml:250mg] "+(2400*S/25).toFixed(0)+"ml/"+(2400*S/25).toFixed(0)*25+"mg，"+"经动脉导管泵入（爱朋注药泵，46h泵完，"+(230/46).toFixed(0)+"ml/h）"+"<br />";
             out=out+"（7）水化: 葡萄糖氯化钠注射液 500ml; 复方氯化钠注射液 500ml + 10%氯化钾注射液 10ml，外周静脉滴注, qd"+"<br />";
             out=out+"（8）止吐: 盐酸托完司琼 5mg, 静推 qd"+"<br />";
